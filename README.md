@@ -7,13 +7,14 @@
 - Spring Data JPA
 - Embedded redis
 - Gradle
-- 
+ 
 <br>
 
 ## 실행 방법
 1. 프로젝트의 [application-1.0.-SNAPSHOT.jar](https://github.com/ldonghee/BlogSearch/blob/master/application-1.0-SNAPSHOT.jar) 다운로드
 2. 터미널에서 파일 경로로 이동 후 `java -jar blog-search-bokeunjeong-0.0.1-SNAPSHOT.jar` 명령어 입력
 
+<br>
 
 ## 설계
 - 멀티 모듈과 hexagonal 아키텍처 도입
