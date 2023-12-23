@@ -14,18 +14,25 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.dhlee.search.blog.domain.Blog;
+import com.dhlee.search.blog.port.LoadBlogCachePort;
 import com.dhlee.search.blog.port.LoadBlogExternalPort;
+import com.dhlee.search.blog.port.SaveBlogCachePort;
 import com.dhlee.search.blog.serviceadapter.BlogServiceAdapter;
 
 @ExtendWith(MockitoExtension.class)
 public class BlogServiceAdapterTest {
 	@Mock
 	private LoadBlogExternalPort loadBlogExternalPort;
+	@Mock
+	private LoadBlogCachePort loadBlogCachePort;
+	@Mock
+	private SaveBlogCachePort saveBlogCachePort;
+
 	private BlogServiceAdapter blogServiceAdapter;
 
 	@BeforeEach
 	public void setUp() {
-		blogServiceAdapter = new BlogServiceAdapter(loadBlogExternalPort);
+		blogServiceAdapter = new BlogServiceAdapter(loadBlogExternalPort, loadBlogCachePort, saveBlogCachePort);
 	}
 
 	@Test

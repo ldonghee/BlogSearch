@@ -6,6 +6,7 @@ spring:
   config:
     import:
       - datastore-h2.yml
+      - datastore-redis.yml
 
 ---
 spring:

@@ -1,0 +1,25 @@
+api:
+  kakao:
+    host: "https://dapi.kakao.com"
+    path: "/v2/search/blog"
+    apiKey: "547230178f4b06d8b44372be61f736a4"
+  naver:
+    host: "https://openapi.naver.com"
+    path: "/v1/search/blog"
+    clientId: "cdkN3TilQGVzQfL56osR"
+    clientSecretKey: "sk_2Lp6eZ0"
+
+---
+spring.config.activate.on-profile: local
+
+---
+spring.config.activate.on-profile: alpha
+
+---
+spring.config.activate.on-profile: beta
+
+---
+spring.config.activate.on-profile: stage
+
+---
+spring.config.activate.on-profile: release
