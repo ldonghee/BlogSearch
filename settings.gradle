@@ -1,0 +1,5 @@
+rootProject.name = 'BlogSearch'
+include 'application'
+include 'domain'
+include 'infrastructure:datastore-h2'
+
