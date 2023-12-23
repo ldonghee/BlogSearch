@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: application
+  profiles:
+    active: local
+  config:
+    import:
+      - datastore-h2.yml
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+
+---
+spring:
+  config:
+    activate:
+      on-profile: alpha
+
+---
+spring:
+  config:
+    activate:
+      on-profile: beta
+
+---
+spring:
+  config:
+    activate:
+      on-profile: stage
+
+---
+spring:
+  config:
+    activate:
+      on-profile: release
