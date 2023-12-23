@@ -62,20 +62,22 @@ curl -X GET http://localhost:8080/blog/search?keyword=acd&page=1&size=2&sort=acc
 #### Response
 ```json
 {
-  "blogs": [
+  "statusCode": 200,
+  "statusMessage": "OK",
+  "result": [
     {
-      "title": "아남 <b>ACD</b>-77 (CD 플레이어)",
-      "url": "https://blog.naver.com/gh1audio_/223187357060",
-      "contents": "아남 <b>ACD</b>-77 CD 플레이어. 특별한 고장이 있는 건 아니고, 20여년전 새제품을 구입했는데, 많이 사용하지 않고 대부분의 시간을 방치상태로 둬서 제대로 작동이 될지 모르겠다고 한다. 아남이 만든 미니컴포넌트 77시리즈의 구성품으로, 중고시장에서 지금도 여전히 인기가 많은 베스트셀러중 하나이다. 예방정비 특별한...",
-      "blogName": "GH1Audio",
-      "datetime": "2023-08-18T21:26:00.000+09:00"
+      "title": "[심즈3] 평생소망이루기 : 1인 <b>심</b> 밴드(1)",
+      "url": "https://jin-plus.tistory.com/188",
+      "contents": "어느덧 에런은 성인이 됐고 예술 학교에서 졸업했다. 그리고 이렇게 평생 소망을 선택할 수 있는 화면이 뜸. 에런의 평생 소망은 바로 &#39;1인 <b>심</b> 밴드&#39;다. 이어 &#39;르프로마쥬 예술 학교&#39;를 졸업했는다는 메시지와 함께 에런은 어딘가에서 졸업 가운을 입고 나타난다 ㅋㅋㅋ 집에 오자마자 얼굴부터 손봐주려 했다. 사실...",
+      "blogName": "진사생활",
+      "datetime": "2023-12-22T11:47:47.000+09:00"
     },
     {
-      "title": "헌터 가방 백팩 UBB6017<b>ACD</b> 사이드 패스너 포켓 배낭 ag-1226",
-      "url": "https://blog.naver.com/50commons/223256724070",
-      "contents": "헌터 가방 백팩 UBB6017<b>ACD</b> 사이드 패스너 포켓 배낭 ag-1226 : 피프티커먼즈 클릭하시면 구입하실 수 있는 쇼핑몰로 이동합니다. smartstore.naver.com 일본에서 직배송하는 100% 정품 제품 입니다 ​ ​ 헌터 가방 백팩 UBB6017<b>ACD</b> 사이드 패스너 포켓 배낭 ag-1226 ​ HUNTER HanaHana 전자기 ManaHana 자기 1 : UBB6017<b>ACD</b>...",
-      "blogName": "100% 정품 일본 구매대행, 피프티커먼즈",
-      "datetime": "2023-11-06T07:07:00.000+09:00"
+      "title": "<b>심</b>부정맥혈전증 1",
+      "url": "https://cu-kang.tistory.com/473",
+      "contents": "것은 혈전이 떨어져 올라가 폐동맥을 막으면 숨도 못쉬고 죽는 급사란다 아직까지 죽지는 않았으니 그나마 천만다행이다~ㅋ 인터넷 지식인으로 폭풍 검색하니 <b>심</b>부정맥혈전증이란다 골든타임이 72시간이란다 한 쪽 다리만 붓는 느낌이 든다면 얼른 병원으로 달려 가란다 더욱이 운동은 증상을 악화시키니 금물이란다...",
+      "blogName": "정말 멋진 날이야",
+      "datetime": "2023-12-15T16:17:37.000+09:00"
     }
   ]
 }
@@ -95,46 +97,48 @@ curl -X GET http://localhost:8080/keyword/popular
 #### Response
 ```json
 {
-  "keywords": [
+  "statusCode": 200,
+  "statusMessage": "OK",
+  "result": [
     {
-      "query": "test4",
-      "count": 103
+      "query": "참외",
+      "count": 11
     },
     {
-      "query": "test3",
-      "count": 101
+      "query": "여름",
+      "count": 7
     },
     {
-      "query": "test10",
-      "count": 99
+      "query": "반려견",
+      "count": 6
     },
     {
-      "query": "test9",
-      "count": 88
+      "query": "휴대폰",
+      "count": 5
     },
     {
-      "query": "test2",
-      "count": 20
+      "query": "심",
+      "count": 5
     },
     {
-      "query": "test11",
-      "count": 19
+      "query": "사람",
+      "count": 4
     },
     {
-      "query": "test6",
-      "count": 15
+      "query": "test",
+      "count": 3
     },
     {
-      "query": "test12",
-      "count": 13
+      "query": "ac",
+      "count": 2
     },
     {
-      "query": "test7",
-      "count": 12
+      "query": "매크",
+      "count": 2
     },
     {
-      "query": "test5",
-      "count": 12
+      "query": "강아지",
+      "count": 2
     }
   ]
 }
