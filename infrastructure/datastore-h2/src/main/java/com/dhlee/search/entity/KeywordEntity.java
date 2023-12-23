@@ -23,7 +23,7 @@ public class KeywordEntity extends BaseEntity {
 
 	public KeywordEntity(String keyword) {
 		this.query = keyword;
-		this.count = 0L;
+		this.count = 1L;
 	}
 
 	public KeywordEntity(String keyword, Long count) {

@@ -3,6 +3,8 @@ dependencies {
 
     compileOnly "org.springframework:spring-context"
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    implementation 'org.redisson:redisson-spring-boot-starter:3.21.1'
+
     implementation ('it.ozimov:embedded-redis:0.7.3') {exclude group: "org.slf4j", module: "slf4j-simple"}
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.3'
 }

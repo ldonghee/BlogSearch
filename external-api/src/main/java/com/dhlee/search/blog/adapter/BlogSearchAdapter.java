@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
 import com.dhlee.search.blog.client.ClientEnginManager;
 import com.dhlee.search.blog.domain.Blog;
@@ -14,7 +13,6 @@ import com.dhlee.search.blog.domain.BlogEntity;
 import com.dhlee.search.blog.port.LoadBlogExternalPort;
 import com.dhlee.search.blog.reqeust.SearchRequest;
 
-@Slf4j
 @Service
 @RequiredArgsConstructor
 public class BlogSearchAdapter implements LoadBlogExternalPort {
@@ -22,7 +20,6 @@ public class BlogSearchAdapter implements LoadBlogExternalPort {
 
 	@Override
 	public List<Blog> findBlogs(String keyword, Integer page, Integer size, String sort) {
-		log.info("external find blog");
 		BlogEntity blogEntity = clientEnginManager.search(new SearchRequest(keyword, sort, page, size));
 
 		return blogEntity.getBlogEntities()

@@ -19,7 +19,7 @@ public class BlogServiceAdapter implements LoadBlogServicePort {
 	public BlogServiceAdapter(LoadBlogExternalPort loadBlogExternalPort, LoadBlogCachePort loadBlogCachePort, SaveBlogCachePort saveBlogCachePort) {
 		this.loadBlogExternalPort = loadBlogExternalPort;
 		this.loadBlogCachePort = loadBlogCachePort;
-		this.saveBlogCachePort = saveBlogCachePort;
+		this.saveBlogCachePort = saveBlogCachePort;;
 	}
 
 	@Override

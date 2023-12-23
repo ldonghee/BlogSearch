@@ -1,4 +1,4 @@
-package com.dhlee.search.keyword.serviceadapter;
+package com.dhlee.search.keyword.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
@@ -15,18 +15,24 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.dhlee.search.keyword.domain.Keyword;
 import com.dhlee.search.keyword.port.LoadKeywordPersistencePort;
+import com.dhlee.search.keyword.port.LoadLockCachePort;
+import com.dhlee.search.keyword.port.SaveKeywordPersistencePort;
 import com.dhlee.search.keyword.serviceadpater.KeywordServiceAdapter;
 
 @ExtendWith(MockitoExtension.class)
 public class KeywordServiceAdapterTest {
 	@Mock
 	private LoadKeywordPersistencePort loadKeywordPersistencePort;
+	@Mock
+	private SaveKeywordPersistencePort saveKeywordPersistencePort;
+	@Mock
+	private LoadLockCachePort loadLockCachePort;
 
 	private KeywordServiceAdapter keywordServiceAdapter;
 
 	@BeforeEach
 	public void setUp() {
-		keywordServiceAdapter = new KeywordServiceAdapter(loadKeywordPersistencePort);
+		keywordServiceAdapter = new KeywordServiceAdapter(loadKeywordPersistencePort, saveKeywordPersistencePort, loadLockCachePort);
 	}
 
 	@Test

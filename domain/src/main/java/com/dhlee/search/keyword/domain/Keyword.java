@@ -9,6 +9,11 @@ public class Keyword {
 		this.count = count;
 	}
 
+	public Keyword(String query) {
+		this.query = query;
+		this.count = 1L;
+	}
+
 	public String getQuery() {
 		return query;
 	}

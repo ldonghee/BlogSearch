@@ -6,6 +6,9 @@ import java.nio.charset.StandardCharsets;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+import org.redisson.Redisson;
+import org.redisson.api.RedissonClient;
+import org.redisson.config.Config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -29,7 +32,9 @@ public class RedisCacheConfig {
 
 	@Value("${spring.redis.port}")
 	private int port;
-	
+
+	private static final String REDISSON_HOST_PREFIX = "redis://";
+
 	private RedisServer redisServer;
 	
 	@PostConstruct
@@ -55,29 +60,6 @@ public class RedisCacheConfig {
 		return new LettuceConnectionFactory(redisStandaloneConfiguration);
 	}
 
-	/**
-	 * Redis Cache 적용을 위한 RedisCacheManager 설정
-	 */
-//	@Bean
-//	public CacheManager redisCacheManager(){
-//		RedisCacheConfiguration redisCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig()
-//																				 .serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(new StringRedisSerializer()))
-//																				 .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(new GenericJackson2JsonRedisSerializer()))
-//																				 .entryTtl(Duration.ofMinutes(5));
-//		return RedisCacheManager.RedisCacheManagerBuilder.fromConnectionFactory(redisConnectionFactory())
-//																				   .cacheDefaults(redisCacheConfiguration)
-//																				   .build();
-//	}
-
-//	@Bean
-//	public RedisTemplate<String, Integer> redisHashTemplate() {
-//		RedisTemplate<String, Integer> redisTemplate = new RedisTemplate<>();
-//		redisTemplate.setConnectionFactory(redisConnectionFactory());
-//		redisTemplate.setHashKeySerializer(new StringRedisSerializer(StandardCharsets.UTF_8));
-//		redisTemplate.setHashValueSerializer(new StringRedisSerializer(StandardCharsets.UTF_8));
-//		return redisTemplate;
-//	}
-
 	@Bean
 	public RedisTemplate<?, ?> redisTemplate() {
 		RedisTemplate<byte[], byte[]> redisTemplate = new RedisTemplate<>();
@@ -85,6 +67,15 @@ public class RedisCacheConfig {
 		redisTemplate.setHashKeySerializer(new StringRedisSerializer(StandardCharsets.UTF_8));
 		redisTemplate.setHashValueSerializer(new StringRedisSerializer(StandardCharsets.UTF_8));
 		return redisTemplate;
+	}
+
+	@Bean
+	public RedissonClient redissonClient() {
+		RedissonClient redisson = null;
+		Config config = new Config();
+		config.useSingleServer().setAddress(REDISSON_HOST_PREFIX + host + ":" + port);
+		redisson = Redisson.create(config);
+		return redisson;
 	}
 
 }
