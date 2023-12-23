@@ -2,5 +2,6 @@ rootProject.name = 'BlogSearch'
 include 'application'
 include 'domain'
 include 'infrastructure:datastore-h2'
+include 'infrastructure:datastore-redis'
 include 'external-api'
 
