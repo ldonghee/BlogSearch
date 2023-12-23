@@ -31,11 +31,11 @@ public class KeywordServiceAdapterTest {
 
 	@Test
 	public void getPopularKeywords() {
-		List<Keyword> expect = Arrays.asList(new Keyword("TEST", 1L), new Keyword("TEST2", 5L));
 		// given
-		when(loadKeywordPersistencePort.findPopularKeywords()).thenReturn(expect);
+		List<Keyword> expect = Arrays.asList(new Keyword("TEST", 1L), new Keyword("TEST2", 5L));
 
 		// when
+		when(loadKeywordPersistencePort.findPopularKeywords()).thenReturn(expect);
 		List<Keyword> actual = keywordServiceAdapter.getPopularKeywords();
 
 		// then
