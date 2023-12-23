@@ -2,6 +2,7 @@ package com.dhlee.search.blog.client.naver;
 
 import java.util.Arrays;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import com.dhlee.search.blog.client.ClientEngine;
@@ -23,10 +24,16 @@ public class NaverClientEngine implements ClientEngine {
 	private static final String SORT_SIM = "sim";
 	private static final String SORT_DATE = "date";
 
-	private final String host = "https://openapi.naver.com";
-	private final String path = "/v1/search/blog";
-	private final String clientId = "cdkN3TilQGVzQfL56osR";
-	private final String clientSecretKey = "sk_2Lp6eZ0";
+	@Value("${api.naver.host}")
+	private String host;
+	@Value("${api.naver.path}")
+	private String path;
+	@Value("${api.naver.clientId}")
+	private String clientId;
+	@Value("${api.naver.clientSecretKey}")
+	private String clientSecretKey;
+
+
 
 	@Override
 	public ClientFrame of(SearchRequest searchRequest) {

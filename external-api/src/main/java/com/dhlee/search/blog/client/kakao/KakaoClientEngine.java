@@ -3,6 +3,7 @@ package com.dhlee.search.blog.client.kakao;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import com.dhlee.search.blog.client.ClientEngine;
@@ -21,9 +22,12 @@ public class KakaoClientEngine implements ClientEngine {
 	private static final String PAGE_KEY = "page";
 	private static final String SIZE_KEY = "size";
 
-	private final String apiKey = "547230178f4b06d8b44372be61f736a4";
-	private final String host = "https://dapi.kakao.com";
-	private final String path = "/v2/search/blog";
+	@Value("${api.kakao.apiKey}")
+	private String apiKey = "547230178f4b06d8b44372be61f736a4";
+	@Value("${api.kakao.host}")
+	private String host = "https://dapi.kakao.com";
+	@Value("${api.kakao.path}")
+	private String path = "/v2/search/blog";
 
 
 	@Override
