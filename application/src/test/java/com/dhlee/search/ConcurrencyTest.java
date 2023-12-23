@@ -2,6 +2,7 @@ package com.dhlee.search;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.List;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;
@@ -17,7 +18,8 @@ import org.springframework.http.ResponseEntity;
 import com.dhlee.search.blog.controller.BlogController;
 import com.dhlee.search.blog.request.BlogRequest;
 import com.dhlee.search.keyword.controller.KeywordController;
-import com.dhlee.search.keyword.response.KeywordResponse;
+import com.dhlee.search.keyword.domain.Keyword;
+import com.dhlee.search.model.CommonResponse;
 
 @SpringBootTest
 public class ConcurrencyTest {
@@ -53,8 +55,8 @@ public class ConcurrencyTest {
 		latch.await();
 
 		// then
-		ResponseEntity<KeywordResponse> popularKeywords = keywordController.getPopularKeywords();
-		Long actual = popularKeywords.getBody().getKeywords().get(0).getCount();
+		ResponseEntity<CommonResponse<List<Keyword>>> popularKeywords = keywordController.getPopularKeywords();
+		Long actual = popularKeywords.getBody().getResult().get(0).getCount();
 		assertThat(actual).isEqualTo(THREAD_COUNT);
 	}
 }
